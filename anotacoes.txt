@@ -1,0 +1,49 @@
+npm start => para rodar o programa, do jeito que veio
+
+** quando compila o npm start, dá inicio ao arquivo index.js, nele vai ser renderizado o arquivo app.js, que será carregado na div root.
+
+componente sempre com a primeira letra maiuscula.
+é criado como uma função comum, e chama um return().
+dentro terá um JSX(como se fosse um html).
+
+
+componentes são chamados como uma tag html </app>
+
+propriedades => pode ser passado qualquer tipo de propriedade.
+pode ser passado propriedades tambem para os componentes.
+
+Ao se passar propriedades nos componentes, precisa passar eles por parametro no arquivo componente.
+function  nome(props) {
+    {props.aluno}
+}
+
+
+propriedades que sao type number, sao definidas entre chaves.
+propriedades são estaticas, nao mutáveis.
+
+o que pode ser usado para ser mutável.
+
+
+Ao usar o useState, pode ser fora do return, mas dentro do componente.
+
+quando for utilizar uma lista com array, precisa ter uma key
+
+
+useState => quando o array passado como argumento sofre alteração.
+USEEffect => quando o componente ainda nao foi carregado.
+
+
+
+======================================
+npx create-react-app => vai criar um novo projeto
+
+Requisições HTTP: fecth(()=> {
+    codigo
+}).then(()=>{
+    codigo
+});
+
+
+==========================
+Instalando biblioteca para rotas =>npm install react-router
+
