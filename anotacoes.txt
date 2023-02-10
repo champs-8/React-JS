@@ -39,7 +39,7 @@ npx create-react-app => vai criar um novo projeto
 
 Requisições HTTP: fecth(()=> {
     codigo
-}).then(()=>{
+}).then((url)=>{
     codigo
 });
 
@@ -47,3 +47,15 @@ Requisições HTTP: fecth(()=> {
 ==========================
 Instalando biblioteca para rotas =>npm install react-router
 
+Um frag => <>
+            </>
+
+            como se fosse uma div mas sem interferir em nada visual.
+
+
+
+
+rota notfound -> rota que nao existe, vai renderizar o header mas não as rotas.
+
+
+componente Erro, vai sempre por ultimo.

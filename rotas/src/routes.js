@@ -1,6 +1,10 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Home from './pages/home';
-import Sobre from './pages/sobre';
+import Home from './pages/Home';
+import Sobre from './pages/Sobre';
+import Contato from './pages/Contato';
+import Header from "./componentes/Header";
+import Erro from './pages/Erro';
+import Produto from './pages/Produto';
 
 
 
@@ -10,6 +14,7 @@ function RoutesApp() {
         //dentro delas vai as nossas rotas
         //as routes
         <BrowserRouter>
+            <Header/>
             <Routes>
 
                 {/* pra cada rota 
@@ -22,6 +27,11 @@ function RoutesApp() {
                 <Route path={'/sobre'} element= {<Sobre/>}/>
 
 
+                <Route path={'/contato'} element= {<Contato/>}/>
+                <Route path={'/produto/:id'} element={<Produto/>}/>
+
+                {/* componente notfound */}
+                <Route path={'*'} element={<Erro/>}/>
             </Routes>
         </BrowserRouter>
     );
