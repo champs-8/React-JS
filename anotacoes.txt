@@ -45,7 +45,8 @@ Requisições HTTP: fecth(()=> {
 
 
 ==========================
-Instalando biblioteca para rotas =>npm install react-router
+Instalando biblioteca para rotas =>npm install react-router-dom
+import {BrowserRouter, Routes, Route}  from 'react-router-dom'
 
 Um frag => <>
             </>
@@ -53,9 +54,16 @@ Um frag => <>
             como se fosse uma div mas sem interferir em nada visual.
 
 
+no componente APP so import o super necessario, o basico pode ir no routes.js
+
+nao esquercer de importar o link para navegar entre as rotas.
 
 
 rota notfound -> rota que nao existe, vai renderizar o header mas não as rotas.
 
 
 componente Erro, vai sempre por ultimo.
+
+axios é uma biblioteca para trabalhar com requisições, tipo o fecth.
+
+
