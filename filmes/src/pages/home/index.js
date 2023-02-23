@@ -54,7 +54,7 @@ function Home() {
                             {/* strong é o titulo */}
                             <strong>{filme.title}</strong>
                             <img src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt={filme.title} title={filme.title}/>
-                            <Link to={`/filme/:${filme.id}`}>Acessar filme</Link>
+                            <Link to={`/filme/${filme.id}`}>Acessar filme</Link>
                         </article>
                     );
                 })}
