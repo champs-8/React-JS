@@ -26,7 +26,7 @@
     margin: 8px 0;
 }
 .area-buttons button {
-    margin: 14px 12px 0 0;
+    margin: 14px 12px 14px 0;
     font-size: 20px;
     border: 0;
     outline: none;
@@ -36,7 +36,7 @@
     transition: all .5s;
 }
 .area-buttons button:hover {
-    background-color: brown;
+    background-color: #116feb;
     color: #fff;
 }
 .area-buttons a {

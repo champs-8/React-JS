@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-//pegar paarametros
-import { useParams } from "react-router-dom";
+//pegar paarametros, useNavigate 
+import { useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";   
 import './filme.css';
 
 function Filme() {
     const {id} = useParams();
+    const navigation = useNavigate();
+
     //começa com um objeto vazio até ter mais informações dos filmes
     const [filme, setFilme] = useState({});
     const [loading,  setLoading] = useState(true);
@@ -29,6 +31,10 @@ function Filme() {
                 
             }).catch(()=>{
                 console.log('FILME NÃO ENCONTRADO');
+                //vai enviar o usuario para o home,
+                //redirecionar a url para a tela de home
+                navigation("/", { replace: true});
+                return;
             })
         }
         loadFilme();
@@ -37,8 +43,32 @@ function Filme() {
             console.log('Componente foi desmontado');
         }
 
-    }, []); 
+    }, [navigation, id]); //é bom adicionar as dependencias externas que estamos utilizando
 
+
+    function salvarFilme() {
+        const myList = localStorage.getItem("@champsflix");
+
+        //converter de string para uma lista 
+        let filmesSalvos = JSON.parse(myList) || [];
+
+        //se no array que está verificando, se há pelo menos um item da busca.
+        const hasFilmes = filmesSalvos.some((filmesSalvo) => 
+            filmesSalvo.id === filme.id
+        );
+
+        if(hasFilmes) {
+            alert('ESSE FILME JÁ ESTÁ NA LISTA')
+            return
+        };
+
+        filmesSalvos.push(filme);
+        //tem que transformar para string porque nao salva array
+        localStorage.setItem("@champsflix", JSON.stringify(filmesSalvos));
+        alert('FILME SALVO COM SUCESSO');
+
+    }
+    
     if(loading) {
         return(
             <div className="filme-info">
@@ -58,8 +88,8 @@ function Filme() {
             <strong>Avaliação: {filme.vote_average}/10</strong>
 
             <div className="area-buttons">
-                <button>Salvar</button>
-                <button><>Trailer</></button>
+                <button onClick={salvarFilme}>Salvar</button>
+                <button><a href={`https://youtube.com/results?search_query=${filme.title}+trailer`} target='_blank' rel="external noreferrer">Trailer</a></button>
             </div>
 
         </div>
