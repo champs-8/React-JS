@@ -7,7 +7,7 @@ import Favoritos from './pages/Favoritos';
 
 function RoutesApp() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename='{process.env.PUBLIC_URL}'>
             <Header/>
             <Routes>
                 <Route path='/' element= {<Home/>}/>

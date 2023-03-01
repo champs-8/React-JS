@@ -1,0 +1,17 @@
+NODE JS é responsável pelo BACK e toda lógica que não é para o cliente.
+
+trabalha com rotas (eventos)
+NODE nao é uma linguagem, ele tá mais para uma plataforma.
+
+YARN ou NPM? São gerenciadores de pacotes.
+serve para instaalr outras bibliotecas da net.
+
+Por que o YARN? ele está um pouco mais otimizado.
+
+CARACTERISTICAS DO NODE
+
+event-loop => Call Stack (pilha de eventos)
+Single thread => executa em apenas uma thread do pc.
+NoN-blocking i/o => input output nao bloqueado. (retornar parcial)
+
+no event-loop. a primeira função a ser chamada, será a ultima a sair
