@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";   
 import './filme.css';
+import {toast} from 'react-toastify';
 
 function Filme() {
     const {id} = useParams();
@@ -58,14 +59,14 @@ function Filme() {
         );
 
         if(hasFilmes) {
-            alert('ESSE FILME JÁ ESTÁ NA LISTA')
+            toast.warn('Esse filme já está na sua lista')
             return
         };
 
         filmesSalvos.push(filme);
         //tem que transformar para string porque nao salva array
         localStorage.setItem("@champsflix", JSON.stringify(filmesSalvos));
-        alert('FILME SALVO COM SUCESSO');
+        toast.success('Filme salvo com sucesso')
 
     }
     
