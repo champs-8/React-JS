@@ -15,3 +15,62 @@ Single thread => executa em apenas uma thread do pc.
 NoN-blocking i/o => input output nao bloqueado. (retornar parcial)
 
 no event-loop. a primeira função a ser chamada, será a ultima a sair
+
+
+API REST
+
+fluxo de requisição e resposta
+frontend recebe os dados e processa
+resposta: atraves de uma estrutura de dados.
+
+
+Get : http://minhaapi.com/usuarios  => buscando todos os usuarios
+post : http://minhaapi.com/usuarios  => criando um novo usuario
+Put : http://minhaapi.com/usuarios/1  => editando as informações do usuario ja existente
+Delete : http://minhaapi.com/usuarios/1  => deletando o usuario 1
+
+
+Vantagens
+
+varios clientes(frontend)
+comunicação padronizada (web, mobile, desktop)
+
+JSON
+{
+    "usuario" : {
+        "nome": "Irineu",
+        "email": "irineu@email.com",
+        "sexo": "masculino"
+    };
+}
+
+REQUISIÇÃO
+
+GET: buscando informações (url)
+POST: envia as informações atraves do request body (body), e tambem com os headers (ex: token)
+
+METODOS HTTP => GPPD
+
+http codes => 1xx informacional
+
+sucesso
+200 sucesso
+201 criando
+
+redirecional
+301 movido permanente
+302 movido
+
+client error
+400 informações errada ou faltosa
+401 nao autorizado
+404 nao existente
+
+server
+500 server error
+
+
+CRUD
+
+Create, Read, Update, Delete
+Criar, ler, atualizar e deletar
