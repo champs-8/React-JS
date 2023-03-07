@@ -17,38 +17,11 @@ server.use(express.json());
 const cursos = ['NODE JS', 'Javascript', 'Java', 'React', 'PHP', 'SQL', 'HTML5', 'Python'];
 
 
-//middleware Global (independente da rota)
-//next serve para seguir o fluxo de requisição
+//middleware Global
 server.use((req, res, next) => {
-    console.log(`URL Chamada: ${req.url}`);
+    console.log('Requisição Chamada');
     return next();
 })
-
-
-//middleware de verificação do nome
-function checkCurso(req, res, next) {
-    if(!req.body.name) {
-        return res.status(400).json({Error: 'Nome do curso é obrigatório'})
-    }
-    return next();
-}
-
-
-//middleware de verificação do index
-function checkIndex(req, res, next) {
-
-    /* se o valor passado por parametro na URL nao
-    tiver index no array, vai retornar 400 */
-    const curso = cursos[req.params.index]
-    
-    if(!curso) {
-        return res.status(400).json({Error: 'Index inválido.'})
-    }
-
-    req.curso = curso
-    return next();
-}
-
 
 server.get('/cursos', (req, res) => {
     return res.json(cursos);
@@ -57,7 +30,7 @@ server.get('/cursos', (req, res) => {
 
 
 // /: serve para indicar que essa rota está esperando um parametro
-server.get('/cursos/:index', checkIndex, (req, res) => {
+server.get('/cursos/:index', (req, res) => {
     // const index = req.params.id;
     const {index} = req.params;
     
@@ -80,16 +53,15 @@ server.get('/cursos/:index', checkIndex, (req, res) => {
 
 
 //Vai criar um novo curso
-server.post('/cursos', checkCurso, (req, res) => {
+server.post('/cursos', (req, res) => {
     const {name} = req.body;
     cursos.push(name);
-
     return res.json(cursos);
 })
 
 
 //atualizando um curso, precisa mandar um ID
-server.put('/cursos/:index', checkCurso, checkIndex, (req, res) => {
+server.put('/cursos/:index', (req, res) => {
     //vai receber o parametro do ID
     const {index} = req.params;
 
@@ -104,7 +76,7 @@ server.put('/cursos/:index', checkCurso, checkIndex, (req, res) => {
 
 
 //excluindo algum curso
-server.delete('/cursos/:index', checkIndex, (req, res) => {
+server.delete('/cursos/:index', (req, res) => {
     const {index} = req.params;
 
     //vai deletar o primeiro que for passado
@@ -115,4 +87,4 @@ server.delete('/cursos/:index', checkIndex, (req, res) => {
 
 
 
-server.listen(3001);
+server.listen(3000);

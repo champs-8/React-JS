@@ -74,3 +74,6 @@ CRUD
 
 Create, Read, Update, Delete
 Criar, ler, atualizar e deletar
+
+Midlleware
+pedido entre a requisição e a resposta no frontend;
