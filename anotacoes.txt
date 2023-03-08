@@ -70,3 +70,5 @@ axios é uma biblioteca para trabalhar com requisições, tipo o fecth.
 AJUDOU DEMAIS A CRIAR O SERVIDOR PARA REACT NO GH.
 
 //https://rodrilima.medium.com/react-como-fazer-o-deploy-no-github-pages-87f6a6fde370
+
+yarn init -y -> inicia o projeto so com o package.json

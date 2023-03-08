@@ -1,0 +1,18 @@
+instalar typescript como dependencia de desenvolvimento -> yarn add typescript -D;
+
+yarn add @types/express -D -> facilitar o desenvolvimento, ajudar se está tudo certo ou nao
+
+yarn add @types/cors -D -> instalar a tipagem do cors.
+
+yarn tsc --init -> inicializou o typescript
+
+yarn add ts-node-dev -D -> bibliotecas para poder trabalhar com o node
+
+yarn add express-async-errors -> tratar erros de uma forma mais amigável
+
+yarn add cors -> qualquer IP acessar a api
+
+
+"scripts": {
+    "dev" : "ts-node-dev --transpile-only src/server.ts"
+  },        -> rodar o script do servidor
