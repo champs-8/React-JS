@@ -9,3 +9,85 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+
+// criar uma migration :yarn prisma migrate dev
+model User {
+  id String @id @default(uuid())
+  name String
+  email String
+  password String
+  created_at DateTime? @default(now())
+  uptade_at DateTime? @default(now())
+
+// serve para definir o nome da tabela
+  @@map("users")
+}
+
+model Category {
+  // @e o nome da celula, será o PK
+  // @default(uuid), por padrão será autoincrement
+  id String @id @default(uuid())
+  name String
+  created_at DateTime? @default(now())
+  uptade_at DateTime? @default(now())
+
+  @@map("categories")  
+  // fazer o relacionamento entre tabelas
+  // uma variavel está recebendo varios produtos
+  products Product[]
+}
+
+model Product {
+  id String @id @default(uuid())
+  name String
+  price String
+  description String
+  banner String
+
+  created_at DateTime? @default(now())
+  uptade_at DateTime? @default(now())
+
+  @@map("products")
+
+  // vai ter relação com a tabela category
+  //fields é campo que vai relacionar
+  category Category @relation(fields: [category_id], references:[id])
+  category_id String
+
+  //relacão com a table item
+  items Item []
+}
+
+model Order {
+  id String @id @default(uuid())
+  table Int
+  status Boolean @default(false)
+  // se o pedido está em rascunho
+  draft Boolean @default(true)
+  // a ? depois do tipo primitivo torna-o opcional
+  name String?
+
+  created_at DateTime? @default(now())
+  upatade_at DateTime? @default(now())
+
+  @@map("orders")
+
+  items Item[]
+}
+
+model Item {
+  id String @id @default(uuid())
+  amount Int 
+
+  created_at DateTime? @default(now())
+  uptade_at DateTime? @default(now())
+
+  @@map("items")
+  
+  order Order @relation(fields: [order_id], references: [id])
+  order_id String
+
+  product Product @relation(fields: [product_id], references: [id])
+  product_id String
+}

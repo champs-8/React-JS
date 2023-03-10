@@ -12,6 +12,12 @@ yarn add express-async-errors -> tratar erros de uma forma mais amigável
 
 yarn add cors -> qualquer IP acessar a api
 
+yarn add prisma -> adicionar o prisma
+
+yarn add @prisma/client
+
+yarn prisma migrate dev -> criar uma migration, rodar uma migration
+
 
 "scripts": {
     "dev" : "ts-node-dev --transpile-only src/server.ts"
