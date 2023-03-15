@@ -16,9 +16,58 @@ yarn add prisma -> adicionar o prisma
 
 yarn add @prisma/client
 
+npx prisma init    -> iniciar o prisma
+
 yarn prisma migrate dev -> criar uma migration, rodar uma migration
+
+yarn bcryptjs -> bibliteca para criptografar senhas
+
+yarn add @types/bcryptjs -D -> tipagem da biblioteca
+
+yarn add jsonwebtoken -> instalar o token
+yarn add @types/jsonwebtoken
+
+
+yarn add dotenv -> para trbalahar com variaveis ambientes
+
+----instalações externas precisam de tipagem-----
+
+
+
+
+
+
 
 
 "scripts": {
     "dev" : "ts-node-dev --transpile-only src/server.ts"
   },        -> rodar o script do servidor
+
+
+  vai criar pastas para controler e services
+
+  O controler vai receber diretamente a requisição. será usados nas rotas, e os serviços
+  serão usados nos controllers.
+  
+
+  Quando for utilizar o serviço, usar o await.
+  exemplo: instanciou um metodo, e vai chamar ele.
+
+
+  Quando for usar o serviço, terá que criar uma inteface. (no services)
+
+  para ter acesso ao banco de dados, basta importar o prismaClient
+
+
+  JWT -> referente ao token de informações (json web token)
+  responsavel por trafegar as infos com segurança
+
+  token é dividido em 3 partes
+
+  o HEADER -> qual o tipo do token
+  o PAYLAOD -> pode contar dados
+  ASSINATURA -> mais importante, garante autenticidade.
+
+
+
+  middleware voce pode bloquear a continuação da rota, com o next().
