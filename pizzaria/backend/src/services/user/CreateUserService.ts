@@ -15,7 +15,6 @@ interface UserRequest {
 class CreateUserService {
     //desconstrução como parametro
     async execute({name, email, password}: UserRequest) {
-        console.log(name);
 
         //verificar se o usuario enviou um email
         if(!email) {

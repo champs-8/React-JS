@@ -45,7 +45,7 @@ class AuthUserService {
                 email: user.email
             },
             //secret
-            process.env.JWT_SECRET, //o TS nao aceita dexar estrito para tipagem, desativamos a checagem de tipagem
+            process.env.JWT_SECRET, //o TS nao aceita deixar estrito para tipagem, desativamos a checagem de tipagem
             {
                 subject:user.id, //ID
                 expiresIn: '30d' //expirar
