@@ -2,13 +2,14 @@ import express, {Request, Response, NextFunction } from "express";
 import 'express-async-errors';
 import { router } from "./routes";
 import cors from 'cors';
-
+import path from 'path'; // acessar os arquivos que serão enviados
 
 const app = express();
 
 app.use(express.json()); //usar esse tipo de formato 
 app.use(cors()); //liberar para qualquer IP conseguir fazer requisição
 app.use(router);
+app.use('/files', express.static(path.resolve(__dirname,'..','tmp'))) //rota para acessar as imagens enviada dos produtos
 
 //recomendaçao da biblioteca async-errors
 //middleware Global
