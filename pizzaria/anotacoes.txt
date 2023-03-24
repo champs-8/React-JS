@@ -77,3 +77,14 @@ yarn add @types/multer -D
   se declarar um variavel que nao tem tipagem propria, precisa criar uma, através do @types/
 
   todo parametro recebido precisa ser tipado.
+  
+
+  NEXT JS
+
+  React js é uma biblioteca js baseado em components, o NEXT é um framework
+
+  Frame -> conjunto de ferramentas ja deifinidas
+
+
+
+

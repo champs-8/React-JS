@@ -14,6 +14,9 @@ import { RemoveOrderController } from './controllers/order/RemoveOrderController
 import { AddItemController } from './controllers/item/AddItemController';
 import { RemoveItemController } from './controllers/item/RemoveItemController';
 import { SendOrderController } from './controllers/order/SendOrderController';
+import { ListOrderController } from './controllers/order/ListOrderController';
+import { DetailsOrderController } from './controllers/order/DetailOrderController';
+import { ConcludeOrderController } from './controllers/order/ConcludeOrderController';
 
 const router = Router();
 
@@ -47,6 +50,12 @@ router.post('/orders', isAuthenticated, new OpenOrderController().handle);
 router.delete('/orders', isAuthenticated, new RemoveOrderController().handle);
 
 router.put('/order/send', isAuthenticated, new SendOrderController().handle);
+
+router.get('/orders/no-draft', isAuthenticated, new ListOrderController().handle);
+
+router.get('/orders/details', isAuthenticated, new DetailsOrderController().handle);
+
+router.put('/orders/conclude', isAuthenticated, new ConcludeOrderController().handle);
 
 /* Rotas ITEM */
 router.post('/item/add', isAuthenticated, new AddItemController().handle);
