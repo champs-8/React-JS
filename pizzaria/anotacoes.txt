@@ -83,8 +83,12 @@ yarn add @types/multer -D
 
   React js é uma biblioteca js baseado em components, o NEXT é um framework
 
-  Frame -> conjunto de ferramentas ja deifinidas
+  Frame -> conjunto de ferramentas ja definidas
 
+  o que o NEXT faz? renderização no servidor(SSR-> Server side Rendering)
+  geração de paginas estaticas, (SSG-> static site generation)
+  possui por padrao seu file-system routing
+  zero configuração.
 
 
 
